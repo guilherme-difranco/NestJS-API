@@ -1,99 +1,311 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+<p align="center"> <a href="http://nestjs.com/" target="_blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a> </p> <p align="center"> <a href="https://www.npmjs.com/package/@nestjs/core" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a> <a href="https://github.com/guilherme-difranco/NestJS-API/blob/main/LICENSE" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="License" /></a> <a href="https://github.com/guilherme-difranco/NestJS-API/actions/workflows/ci.yml" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/guilherme-difranco/NestJS-API/ci.yml?branch=main" alt="CI Status" /></a> <a href="https://coveralls.io/github/guilherme-difranco/NestJS-API?branch=main" target="_blank"><img src="https://coveralls.io/repos/github/guilherme-difranco/NestJS-API/badge.svg?branch=main" alt="Coverage" /></a> <a href="https://discord.gg/seu-discord" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> </p>
+📜 Descrição
+Este projeto é uma API desenvolvida em NestJS, focada em backend, que inclui funcionalidades de autenticação, um sistema de transações financeiras, gerenciamento de filas com BullMQ, documentação interativa com Swagger, e suporte para execução local e via Docker. A aplicação utiliza PostgreSQL via Neon como banco de dados, Redis via Upstash para gerenciamento de filas, e está containerizada para facilitar o deploy e testes.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+🚀 Funcionalidades
+Principais Funcionalidades
+Autenticação
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Registro de usuários (signup).
+Login de usuários (signin) com autenticação via JWT.
+Sistema de Transações
 
-## Description
+Depósitos: Adicionar valores ao saldo do usuário.
+Saques: Remover valores do saldo do usuário com validação de saldo.
+Transferências: Transferir valores entre usuários cadastrados.
+Registro de todas as transações no histórico.
+Gerenciamento de Filas
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Processamento assíncrono de transações com BullMQ.
+Geração de relatórios diários de transações.
+Painel de monitoramento Bull-Board acessível em /admin/queues.
+Documentação das Rotas
 
-## Project setup
+Todas as rotas documentadas utilizando Swagger disponível em /docs.
+Funcionalidades Adicionais
+Seeds de Banco de Dados
+Banco de dados PostgreSQL via Neon configurado com dados de exemplo para usuários e transações.
+Testes Automatizados
+Testes unitários e de integração configurados com Jest.
+🛠 Tecnologias Utilizadas
+NestJS
+TypeScript
+PostgreSQL via Neon
+Redis via Upstash
+BullMQ
+Swagger
+Docker e Docker Compose
+Prisma (ORM)
+Jest (Testes)
+📋 Pré-requisitos
+Antes de começar, certifique-se de ter instalado em sua máquina:
 
-```bash
-$ yarn install
-```
+Docker
+Docker Compose
+Node.js (versão 18 ou superior)
+Yarn (opcional para execução local sem Docker)
+🏁 Como Rodar o Projeto
+1. Rodando com Docker
+Passo a Passo
+Clone o repositório:
 
-## Compile and run the project
+bash
 
-```bash
-# development
-$ yarn run start
+git clone https://github.com/guilherme-difranco/NestJS-API
+cd NestJS-API
+Configure as variáveis de ambiente:
 
-# watch mode
-$ yarn run start:dev
+Crie um arquivo .env na raiz do projeto com as seguintes variáveis (substitua os valores conforme necessário):
 
-# production mode
-$ yarn run start:prod
-```
+env
 
-## Run tests
+DATABASE_URL=postgresql://<usuario>:<senha>@postgres:5432/<database>
+JWT_SECRET=seu_jwt_secret
+REDIS_HOST=redis
+REDIS_PORT=6379
+REDIS_PASSWORD=sua_senha_redis
+REDIS_TLS=true
+REDIS_USERNAME=seu_usuario_redis
+PORT=3000
+Notas:
 
-```bash
-# unit tests
-$ yarn run test
+PostgreSQL (Neon): Substitua <usuario>, <senha>, e <database> com suas credenciais do Neon.
+Redis (Upstash): Substitua redis, sua_senha_redis, e seu_usuario_redis com suas credenciais do Upstash.
+Construa e inicie os contêineres:
 
-# e2e tests
-$ yarn run test:e2e
+bash
 
-# test coverage
-$ yarn run test:cov
-```
+docker-compose up --build
+Acesse a API:
 
-## Deployment
+API: http://localhost:3000
+Documentação Swagger: http://localhost:3000/docs
+Bull-Board: http://localhost:3000/admin/queues
+Rodar Migrations e Seeds dentro do container (se necessário):
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Caso seja necessário rodar migrations ou seeds após subir os containers, você pode acessar o container da aplicação:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+bash
 
-```bash
-$ yarn install -g mau
-$ mau deploy
-```
+docker exec -it nestjs-api-app sh
+Dentro do container, execute:
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+bash
 
-## Resources
+yarn prisma migrate dev
+yarn seed
+2. Rodando Localmente (Sem Docker)
+Passo a Passo
+Clone o repositório:
 
-Check out a few resources that may come in handy when working with NestJS:
+bash
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+git clone https://github.com/guilherme-difranco/NestJS-API
+cd NestJS-API
+Instale as dependências:
 
-## Support
+bash
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+yarn install
+Configure as variáveis de ambiente:
 
-## Stay in touch
+Crie um arquivo .env na raiz do projeto com as seguintes variáveis (substitua os valores conforme necessário):
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+env
 
-## License
+DATABASE_URL=postgresql://<neon_user>:<neon_password>@<neon_host>:5432/<neon_db>
+JWT_SECRET=seu_jwt_secret
+REDIS_HOST=<upstash_redis_host>
+REDIS_PORT=6379
+REDIS_PASSWORD=<upstash_redis_password>
+REDIS_TLS=true
+REDIS_USERNAME=<upstash_redis_username>
+PORT=3000
+Execute as migrações do banco de dados:
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+bash
+
+yarn prisma migrate dev
+Popule o banco de dados com dados de exemplo:
+
+bash
+
+yarn seed
+Inicie a aplicação:
+
+bash
+
+yarn start:dev
+Acesse a API:
+
+API: http://localhost:3000
+Documentação Swagger: http://localhost:3000/docs
+Bull-Board: http://localhost:3000/admin/queues
+📜 Scripts Disponíveis
+Scripts com Yarn
+Iniciar a aplicação em modo de desenvolvimento:
+
+bash
+
+yarn start:dev
+Compilar o código TypeScript para JavaScript:
+
+bash
+
+yarn build
+Iniciar a aplicação no modo de produção:
+
+bash
+
+yarn start:prod
+Executar testes unitários:
+
+bash
+
+yarn test
+Executar testes de integração (e2e):
+
+bash
+
+yarn test:e2e
+Verificar cobertura dos testes:
+
+bash
+
+yarn test:cov
+Executar migrações do banco de dados:
+
+bash
+
+yarn prisma migrate dev
+Gerar o cliente Prisma:
+
+bash
+
+yarn prisma generate
+Popular o banco de dados com dados de exemplo:
+
+bash
+
+yarn seed
+🌱 Seeds
+Para popular o banco de dados com dados de exemplo, execute:
+
+bash
+
+yarn seed
+Isso criará usuários e transações de exemplo para análise do projeto.
+
+🧪 Testes
+Os testes estão configurados com Jest. Para rodar os testes, utilize os seguintes comandos:
+
+Executar todos os testes:
+
+bash
+
+yarn test
+Executar testes de integração (e2e):
+
+bash
+
+yarn test:e2e
+Verificar cobertura dos testes:
+
+bash
+
+yarn test:cov
+☁️ Deployment
+A aplicação está configurada para ser executada em Docker, facilitando o deploy em diversas plataformas. Para realizar o deploy em serviços como AWS, Heroku ou Vercel, siga os passos abaixo:
+
+Build da Imagem Docker:
+
+bash
+
+docker build -t nestjs-api-app .
+Executar a Imagem em Produção:
+
+bash
+
+docker run -d -p 3000:3000 --env-file .env nestjs-api-app
+Considerações para Deploy
+Variáveis de Ambiente: Certifique-se de configurar as variáveis de ambiente no serviço de hospedagem.
+Segurança: Nunca exponha informações sensíveis. Utilize serviços de gerenciamento de segredos quando possível.
+Escalabilidade: Para ambientes de produção, considere utilizar orquestradores como Kubernetes para gerenciar a escalabilidade da aplicação.
+📚 Recursos
+Confira alguns recursos úteis para trabalhar com NestJS:
+
+Documentação Oficial do NestJS
+Discord do NestJS - Para dúvidas e suporte.
+Cursos Oficiais - Para aprofundar seus conhecimentos.
+NestJS Devtools - Ferramentas para visualizar e interagir com sua aplicação NestJS em tempo real.
+Prisma Documentation
+BullMQ Documentation
+Upstash Redis
+Neon PostgreSQL
+🤝 Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar pull requests.
+
+Passos para Contribuir
+Fork este repositório
+
+Crie uma branch para sua feature:
+
+bash
+
+git checkout -b minha-nova-feature
+Commit suas alterações:
+
+bash
+
+git commit -m 'Adiciona nova feature'
+Push para a branch:
+
+bash
+
+git push origin minha-nova-feature
+Abra um Pull Request
+
+📫 Como Contribuir
+Fork este repositório
+
+Crie uma branch para sua feature:
+
+bash
+
+git checkout -b minha-nova-feature
+Commit suas alterações:
+
+bash
+
+git commit -m 'Adiciona nova feature'
+Push para a branch:
+
+bash
+
+git push origin minha-nova-feature
+Abra um Pull Request
+
+🤝 Suporte
+Este projeto está licenciado sob a licença MIT. Para contribuir, reportar problemas ou sugerir melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+📞 Fique em Contato
+Autor: Guilherme Di Franco
+LinkedIn: Seu LinkedIn
+Twitter: @seu_twitter
+📝 Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+🎨 Capturas de Tela
+Adicione algumas capturas de tela para ilustrar a aplicação.
+
+
+📈 Status do Projeto
+
+🔗 Links Úteis
+Repositório no GitHub
+Documentação do Prisma
+Documentação do BullMQ
+Swagger
+NestJS Documentation
+Neon PostgreSQL
+Upstash Redis
