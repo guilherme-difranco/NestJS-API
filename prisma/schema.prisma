@@ -1,0 +1,58 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Tipos de transação
+enum TransactionType {
+  DEPOSIT
+  WITHDRAW
+  TRANSFER
+}
+
+// Status de transação (diferencial)
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+// Tabela de Usuários
+model User {
+  id         Int           @id @default(autoincrement())
+  name       String
+  email      String        @unique
+  password   String
+  balance    Decimal       @default(0.0)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+  
+  // Transações que esse usuário efetuou
+  transactions Transaction[]
+
+  // Transações que esse usuário recebeu (caso seja TRANSFER)
+  receivedTransactions Transaction[] @relation("transferReceiver")
+}
+
+// Tabela de Transações (histórico)
+model Transaction {
+  id          Int                @id @default(autoincrement())
+  traceId     String             @unique @default(uuid())
+  type        TransactionType
+  status      TransactionStatus  @default(PENDING)
+  amount      Decimal
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  // Quem está realizando a transação (depósito, saque ou enviando numa transferência)
+  userId      Int
+  user        User               @relation(fields: [userId], references: [id])
+
+  // Quem recebe (caso seja TRANSFER)
+  receiverId  Int?
+  receiver    User?              @relation("transferReceiver", fields: [receiverId], references: [id])
+}
