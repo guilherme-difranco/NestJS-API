@@ -1,14 +1,20 @@
-# Usando a imagem oficial do Node.js
-FROM node:18-alpine
+# Usando a imagem oficial do Node.js (Debian-based)
+FROM node:18
 
 # Definindo o diretório de trabalho
 WORKDIR /app
 
-# Copiando os arquivos package.json e yarn.lock
+# Copiando os arquivos de dependências
 COPY package.json yarn.lock ./
 
 # Instalando as dependências
 RUN yarn install --frozen-lockfile
+
+# Copiando o diretório prisma para gerar o cliente Prisma
+COPY prisma ./prisma
+
+# Gerando o cliente Prisma
+RUN npx prisma generate
 
 # Copiando o restante dos arquivos do projeto
 COPY . .
