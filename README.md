@@ -7,55 +7,69 @@ Este projeto é uma API desenvolvida em NestJS, focada em backend, que inclui fu
 ### Principais Funcionalidades
 #### Autenticação
 
-Registro de usuários (signup).
-Login de usuários (signin) com autenticação via JWT.
+- Registro de usuários (signup).
+- Login de usuários (signin) com autenticação via JWT.
 
 #### Sistema de Transações
 
-Depósitos: Adicionar valores ao saldo do usuário.
-Saques: Remover valores do saldo do usuário com validação de saldo.
-Transferências: Transferir valores entre usuários cadastrados.
-Registro de todas as transações no histórico.
-Gerenciamento de Filas
+- Depósitos: Adicionar valores ao saldo do usuário.
+- Saques: Remover valores do saldo do usuário com validação de saldo.
+- Transferências: Transferir valores entre usuários cadastrados.
+- Registro de todas as transações no histórico.
 
-Processamento assíncrono de transações com BullMQ.
-Geração de relatórios diários de transações.
-Painel de monitoramento Bull-Board acessível em /admin/queues.
-Documentação das Rotas
+#### Gerenciamento de Filas
 
-Todas as rotas documentadas utilizando Swagger disponível em /docs.
-Funcionalidades Adicionais
-Seeds de Banco de Dados
-Banco de dados PostgreSQL via Neon configurado com dados de exemplo para usuários e transações.
-Testes Automatizados
-Testes unitários e de integração configurados com Jest.
-🛠 Tecnologias Utilizadas
-NestJS
-TypeScript
-PostgreSQL via Neon
-Redis via Upstash
-BullMQ
-Swagger
-Docker e Docker Compose
-Prisma (ORM)
-Jest (Testes)
-📋 Pré-requisitos
+- Processamento assíncrono de transações com BullMQ.
+- Geração de relatórios diários de transações.
+- Painel de monitoramento Bull-Board acessível em /admin/queues.
+
+#### Documentação das Rotas
+
+- Todas as rotas documentadas utilizando Swagger disponível em /docs.
+
+### Funcionalidades Adicionais
+
+- Seeds de Banco de Dados
+- Banco de dados PostgreSQL via Neon configurado com dados de exemplo para usuários e transações.
+
+#### Testes Automatizados
+- Testes unitários e de integração configurados com Jest.
+
+
+## 🛠 Tecnologias Utilizadas
+
+- NestJS
+- TypeScript
+- PostgreSQL via Neon
+- Redis via Upstash
+- BullMQ
+- Swagger
+- Docker e Docker Compose
+- Prisma (ORM)
+- Jest (Testes)
+
+## 📋 Pré-requisitos
 Antes de começar, certifique-se de ter instalado em sua máquina:
 
-Docker
-Docker Compose
-Node.js (versão 18 ou superior)
-Yarn (opcional para execução local sem Docker)
-🏁 Como Rodar o Projeto
-1. Rodando com Docker
-Passo a Passo
-Clone o repositório:
+- Docker
+- Docker Compose
+- Node.js (versão 18 ou superior)
+- Yarn (opcional para execução local sem Docker)
 
-bash
+## 🏁 Como Rodar o Projeto
+1. Rodando com Docker
+
+Passo a Passo
+
+- Clone o repositório:
+
+```bash
 
 git clone https://github.com/guilherme-difranco/NestJS-API
 cd NestJS-API
-Configure as variáveis de ambiente:
+```
+
+2. Configure as variáveis de ambiente:
 
 Crie um arquivo .env na raiz do projeto com as seguintes variáveis (substitua os valores conforme necessário):
 
