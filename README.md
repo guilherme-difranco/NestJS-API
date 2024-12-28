@@ -1,14 +1,16 @@
 <p align="center"> <a href="http://nestjs.com/" target="_blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a> </p> <p align="center"> <a href="https://www.npmjs.com/package/@nestjs/core" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a> <a href="https://github.com/guilherme-difranco/NestJS-API/blob/main/LICENSE" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="License" /></a> <a href="https://github.com/guilherme-difranco/NestJS-API/actions/workflows/ci.yml" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/guilherme-difranco/NestJS-API/ci.yml?branch=main" alt="CI Status" /></a> <a href="https://coveralls.io/github/guilherme-difranco/NestJS-API?branch=main" target="_blank"><img src="https://coveralls.io/repos/github/guilherme-difranco/NestJS-API/badge.svg?branch=main" alt="Coverage" /></a> <a href="https://discord.gg/seu-discord" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> </p>
-📜 Descrição
+
+## 📜 Descrição
 Este projeto é uma API desenvolvida em NestJS, focada em backend, que inclui funcionalidades de autenticação, um sistema de transações financeiras, gerenciamento de filas com BullMQ, documentação interativa com Swagger, e suporte para execução local e via Docker. A aplicação utiliza PostgreSQL via Neon como banco de dados, Redis via Upstash para gerenciamento de filas, e está containerizada para facilitar o deploy e testes.
 
-🚀 Funcionalidades
-Principais Funcionalidades
-Autenticação
+## 🚀 Funcionalidades
+### Principais Funcionalidades
+#### Autenticação
 
 Registro de usuários (signup).
 Login de usuários (signin) com autenticação via JWT.
-Sistema de Transações
+
+#### Sistema de Transações
 
 Depósitos: Adicionar valores ao saldo do usuário.
 Saques: Remover valores do saldo do usuário com validação de saldo.
