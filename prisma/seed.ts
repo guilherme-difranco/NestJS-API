@@ -11,10 +11,10 @@ async function main() {
   // Cria usuários
   const hash = await bcrypt.hash('123456', 10);
   const user1 = await prisma.user.create({
-    data: { name: 'Alice', email: 'alice@example.com', password: hash, balance: 500 },
+    data: { name: 'Alice', email: 'alice@alice.com', password: hash, balance: 500 },
   });
   const user2 = await prisma.user.create({
-    data: { name: 'Bob', email: 'bob@example.com', password: hash, balance: 300 },
+    data: { name: 'Bob', email: 'bob@bob.com', password: hash, balance: 300 },
   });
 
   // Cria transações de exemplo
